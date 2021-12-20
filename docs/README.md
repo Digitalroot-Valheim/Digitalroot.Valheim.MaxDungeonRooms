@@ -6,10 +6,10 @@ Raises the chance to spawn larger dungeons.
 
 # Digitalroot's Max Dungeon Rooms
 Raises the change to spawn larger dungeons. Valheim makes a limited
-number of attemps to spawn rooms for a dungeon.
+number of attempts to spawn rooms for a dungeon.
 
-The defauts for **Forest Crypt** are _20/40_.  
-The defauts for **Sunken Crypt** are _20/30_.
+The defaults for **Forest Crypt** are _20/40_.  
+The defaults for **Sunken Crypt** are _20/30_.
 
 This mod alters these values for a higher chance of spawning more rooms
 per dungeon. 

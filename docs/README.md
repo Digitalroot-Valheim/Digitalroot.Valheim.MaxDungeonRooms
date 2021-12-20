@@ -1,51 +1,56 @@
-Structuring your Thunderstore package
-https://github.com/ebkr/r2modmanPlus/wiki/Structuring-your-Thunderstore-package
-
-Manifest V1 (Thunderstore) + author field
-https://github.com/ebkr/r2modmanPlus/wiki/Installing-mods-locally#manifest-v1-thunderstore--author-field
-
-
-Move me to [gitrepo]/doc
-
-# Summary
-This is a port of <a href="https://www.nexusmods.com/valheim/mods/0000">ModTemplate</a> to JVL   
-PR: https://github.com/Atokal/AtosArrows/pull/3   
-Assets belong to <a href="https://github.com/Atokal" target="_blank">Atokal</a> and are used with permission because of:   
-- Asset use permission You are allowed to use the assets in this file without permission or crediting me. https://www.nexusmods.com/valheim/mods/969 (June 12, 2021)
- 
-Original Mod: https://www.nexusmods.com/valheim/mods/969
-
-**Code is a complete rewrite.**
+## Summary
+Raises the chance to spawn larger dungeons. 
 
 ## License
-Original source has no license.   
-JVL Version is released under: **GNU Affero General Public License v3.0**
+**GNU Affero General Public License v3.0**
 
-## ModTemplate
-Adds several new arrows into the game. Expands arrow progression for fighting tougher enemies! 
+# Digitalroot's Max Dungeon Rooms
+Raises the change to spawn larger dungeons. Valheim makes a limited
+number of attemps to spawn rooms for a dungeon.
 
-New Items:
-- Stone Arrow
-- Blunted Arrow
+The defauts for **Forest Crypt** are _20/40_.  
+The defauts for **Sunken Crypt** are _20/30_.
 
-### Dependencies
-- <a href="https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/"  target="_blank">BepInExPack Valheim</a>
-- <a href="https://github.com/Valheim-Modding/Jotunn" target="_blank">Jotunn (JVL)</a>
+This mod alters these values for a higher chance of spawning more rooms
+per dungeon. 
+
+### FAQ
+ - What is the lowest number of rooms I have spawned using this mod? **6**
+ - What is the highest number of rooms I have spawned using this mod? **99**
+ - Will this cause performance issue? **Yes, it can on slower PCs.**
+ - What happens to spawned dungeons if the mod is removed? **They stay, they are part of the world save file.**
+
+### The Algorithm
+
+The _Min/Max_ values do not functions as I expected them to. 
+The algorithm the **Dungeon Generator** uses looks like the following.
+
+```c#
+for (int i = 0; i < maxRooms; i++)
+{
+  TryToPlaceOneRoom();
+  if (HasAllRequiredRooms() && placedRooms.Count > minRooms)
+  {
+    break;
+  }
+}
+```
+**Dungeon Generator** will stop spawning more rooms when either of the two statement are true.
+ - All required rooms have spawned and the _min_ number of rooms have spawned too.
+ - **Dungeon Generator** has made up to the _max_ number of attempts to spawn rooms.
 
 ### Installation (manual)
 1. Download the latest release archive (zip) file.
 1. Extract the archive into &lt;Steam Location&gt;\steamapps\common\Valheim\BepInEx\plugins
 
 ### Configuration 
-- No need to configure.
+- Min Rooms
+- Max Rooms
 
 ### Issues/Questions/Bugs
 - Use the repo issues tab above.
 
 ### Support Me @ https://www.buymeacoffee.com/digitalroot
-
-### Thanks to 
-- <a href="https://github.com/Atokal" target="_blank">Atokal</a>
 
 <p align="center">
 <b>Digitalroot can be found in the Odin Plus Team Discord</b><br />

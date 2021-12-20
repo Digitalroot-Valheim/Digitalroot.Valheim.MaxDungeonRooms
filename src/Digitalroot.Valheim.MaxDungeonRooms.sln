@@ -25,10 +25,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{28344659-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ico", "ico", "{C66A8E3B-31DB-4296-9DF3-78F55E2580E5}"
 	ProjectSection(SolutionItems) = preProject
+		ico\52Rooms.png = ico\52Rooms.png
+		ico\72Rooms.png = ico\72Rooms.png
+		ico\99Rooms.png = ico\99Rooms.png
+		ico\99Rooms2.png = ico\99Rooms2.png
+		ico\99Rooms3.png = ico\99Rooms3.png
+		ico\99Rooms4.png = ico\99Rooms4.png
+		ico\99Rooms5.png = ico\99Rooms5.png
+		ico\99Rooms6.png = ico\99Rooms6.png
 		ico\icon.png = ico\icon.png
 		ico\icon_greendot.gif = ico\icon_greendot.gif
 		ico\icon_reddot.gif = ico\icon_reddot.gif
 		ico\icon_yellowdot.gif = ico\icon_yellowdot.gif
+		ico\MassCrypt.png = ico\MassCrypt.png
+		ico\MassCrypt2.png = ico\MassCrypt2.png
 		ico\ValheimRcon.xcf = ico\ValheimRcon.xcf
 		ico\ValheimRcon_black.ico = ico\ValheimRcon_black.ico
 		ico\ValheimRcon_black.png = ico\ValheimRcon_black.png
@@ -36,7 +46,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ico", "ico", "{C66A8E3B-31D
 		ico\ValheimRcon_color.png = ico\ValheimRcon_color.png
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Digitalroot.Valheim.MaxDungeonRooms", "Digitalroot.Valheim.MaxDungeonRooms\Digitalroot.Valheim.MaxDungeonRooms.csproj", "{BDA6FE96-4BB4-486A-8A51-51EE3FDEF7A9}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugNoDeploy|Any CPU = DebugNoDeploy|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDA6FE96-4BB4-486A-8A51-51EE3FDEF7A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA6FE96-4BB4-486A-8A51-51EE3FDEF7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA6FE96-4BB4-486A-8A51-51EE3FDEF7A9}.DebugNoDeploy|Any CPU.ActiveCfg = DebugNoDeploy|Any CPU
+		{BDA6FE96-4BB4-486A-8A51-51EE3FDEF7A9}.DebugNoDeploy|Any CPU.Build.0 = DebugNoDeploy|Any CPU
+		{BDA6FE96-4BB4-486A-8A51-51EE3FDEF7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA6FE96-4BB4-486A-8A51-51EE3FDEF7A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -48,8 +48,10 @@ for (int i = 0; i < maxRooms; i++)
 - Max Rooms
 
 ##### Advanced Configuration 
-###### Each dungeon type can have their own values. Enable the override for the dungeon and set it's values
-###### If an overwide is not enable, then the values from the __General__ section are used.
+
+> Each dungeon type can have their own values. Enable the override for the dungeon and set it's values. 
+> If an override is not enable, then the values from the __General__ section are used.
+
 
 ### Issues/Questions/Bugs
 - Use the repo issues tab above.

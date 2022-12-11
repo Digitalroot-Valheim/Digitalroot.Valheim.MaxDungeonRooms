@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Digitalroot.Valheim.MaxDungeonRooms</AssemblyName>
     <TargetFrameworks>net462</TargetFrameworks>
-    <LangVersion>9</LangVersion>
+    <LangVersion>10</LangVersion>
     <RootNamespace>Digitalroot.Valheim.MaxDungeonRooms</RootNamespace>
     <IsPublishable>False</IsPublishable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>

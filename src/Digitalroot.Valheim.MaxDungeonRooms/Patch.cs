@@ -22,10 +22,42 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
         {
           Log.Trace(Main.Instance, $"{Main.Namespace}.{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}.{MethodBase.GetCurrentMethod()?.Name}");
           Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] {__instance.gameObject.name}");
-          __instance.m_minRooms = Main.Instance.MinRooms.Value;
-          __instance.m_maxRooms = Main.Instance.MaxRooms.Value;
 
-          for (var i = 0; i < __instance.m_maxRooms; i++)
+          var min = Main.Instance.MinRooms.Value;
+          var max = Main.Instance.MaxRooms.Value;
+
+          switch (__instance.gameObject.name)
+          {
+            case "DG_ForestCrypt(Clone)":
+              if (!Main.Instance.EnableForestCryptOverride.Value) break;
+              min = Main.Instance.ForestCryptOverrideMinRooms.Value;
+              max = Main.Instance.ForestCryptOverrideMaxRooms.Value;
+              break;
+          
+            case "DG_SunkenCrypt(Clone)":
+              if (!Main.Instance.EnableSunkenCryptOverride.Value) break;
+              min = Main.Instance.SunkenCryptOverrideMinRooms.Value;
+              max = Main.Instance.SunkenCryptOverrideMaxRooms.Value;
+              break;
+
+            case "DG_Cave(Clone)":
+              if (!Main.Instance.EnableCaveOverride.Value) break;
+              min = Main.Instance.CaveOverrideMinRooms.Value;
+              max = Main.Instance.CaveOverrideMaxRooms.Value;
+              break;
+
+            case "DG_DvergrTown(Clone)":
+              if (!Main.Instance.EnableDvergrTownOverride.Value) break;
+              min = Main.Instance.DvergrTownOverrideMinRooms.Value;
+              max = Main.Instance.DvergrTownOverrideMaxRooms.Value;
+              break;
+          }
+
+          __instance.m_minRooms = min;
+          __instance.m_maxRooms = max;
+
+          int i;
+          for (i = 0; i < __instance.m_maxRooms; i++)
           {
             // Log.Trace(Main.Instance, $"i : {i}, DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
             __instance.PlaceOneRoom(mode);
@@ -46,9 +78,11 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
               Log.Trace(Main.Instance, $"i+1 < __instance.m_maxRooms : {i+1 < __instance.m_maxRooms}");
             }
           }
-          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] __instance.gameObject.name : {__instance.gameObject.name}");
-          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
-          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] Loc: {__instance.gameObject.transform.position}");
+          Log.Debug(Main.Instance, "All required rooms have been placed, stopping generation");
+          Log.Debug(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] __instance.gameObject.name : {__instance.gameObject.name}");
+          Log.Debug(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
+          Log.Debug(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] Loc: {__instance.gameObject.transform.position}");
+          Log.Debug(Main.Instance, $"Total attempts {i} of {__instance.m_minRooms}/{__instance.m_maxRooms}");
         }
         catch (Exception e)
         {

@@ -41,7 +41,7 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
         #if DEBUG
         EnableTrace = true;
         #else
-        EnableTrace = true;
+        EnableTrace = false;
         #endif
         Instance = this;
         NexusId = Config.Bind("1. General", "NexusID", 1665, new ConfigDescription("Nexus mod ID for updates", null, new ConfigurationManagerAttributes { Browsable = false, ReadOnly = true }));

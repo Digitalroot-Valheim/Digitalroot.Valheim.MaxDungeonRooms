@@ -74,7 +74,7 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
         // Swamp
         EnableSunkenCryptOverride = Config.Bind("3. Sunken Crypt Overrides", "Enable Sunken Crypt Override", false, new ConfigDescription("Min number of rooms in a Sunken Crypt dungeon.", tags: new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true}));
         SunkenCryptOverrideMinRooms = Config.Bind("3. Sunken Crypt Overrides", "Sunken Crypt Min Rooms", 20, new ConfigDescription("Min number of rooms in a Sunken Crypt dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true}));
-        SunkenCryptOverrideMaxRooms = Config.Bind("3. Sunken Crypt Overrides", "Sunken Crypt Max Rooms", 40, new ConfigDescription("Max number of rooms in a Sunken Crypt dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true}));
+        SunkenCryptOverrideMaxRooms = Config.Bind("3. Sunken Crypt Overrides", "Sunken Crypt Max Rooms", 30, new ConfigDescription("Max number of rooms in a Sunken Crypt dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true}));
 
         // Mount
         EnableCaveOverride = Config.Bind("4. Cave Overrides", "Enable Cave Override", false, new ConfigDescription("Min number of rooms in a Cave dungeon.", tags: new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true }));

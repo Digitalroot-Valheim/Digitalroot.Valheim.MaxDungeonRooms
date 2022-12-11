@@ -3,6 +3,8 @@ name: Release
 concurrency: ci-${{ github.ref }}
 
 on:
+  workflow_dispatch:
+  
   push:
     branches: [ main ] # Default release branch
     paths:
@@ -15,17 +17,16 @@ env:
 
 jobs:
   call-workflow-nuget-release:
-    if: ${{ false }} # disable for now
     uses: Digitalroot-Valheim/.github/.github/workflows/nuget.release.yml@main
     secrets:
       aws-access-key-id: ${{ secrets.NUGET_S3_REPO_KEY_ID }}
       aws-secret-access-key: ${{ secrets.NUGET_S3_REPO_KEY_SECRET }}
       nexus-api-key: ${{ secrets.NEXUS_API_KEY }}
-      nexus-cookies-header: ${{ secrets.NEXUS_COOKIE_HEADER }}
-
+      nexus-cookie-nxid-header: ${{ secrets.NEXUS_COOKIE_HEADER_NEXUSID }}
+      nexus-cookie-sid-header: ${{ secrets.NEXUS_COOKIE_HEADER_SID_DEVELOP }}
     with:
       sln-file-name: Digitalroot.Valheim.MaxDungeonRooms
       proj-file-name: Digitalroot.Valheim.MaxDungeonRooms
-      skip-unit-tests: true
-      #nexus-enable-upload: true
-      #nexus-mod-id: 000
+      is-nuget-package: false
+      nexus-enable-upload: true
+      nexus-mod-id: 1665

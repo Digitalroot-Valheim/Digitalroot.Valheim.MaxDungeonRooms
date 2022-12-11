@@ -12,30 +12,33 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
   [BepInPlugin(Guid, Name, Version)]
   [BepInDependency(Jotunn.Main.ModGuid)]
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-  public class Main : BaseUnityPlugin, ITraceableLogging
+  public partial class Main : BaseUnityPlugin, ITraceableLogging
   {
-    public const string Version = "1.0.0";
-    public const string Name = "Digitalroot Max Dungeon Rooms";
-    public const string Guid = "digitalroot.mods.maxdungeonrooms";
-    public const string Namespace = "Digitalroot.Valheim." + nameof(MaxDungeonRooms);
     private Harmony _harmony;
     public static Main Instance;
 
-    public readonly ConfigEntry<int> NexusId;
+    public static ConfigEntry<int> NexusId;
     public ConfigEntry<int> MinRooms;
     public ConfigEntry<int> MaxRooms;
 
     public Main()
     {
-      Instance = this;
-      NexusId  = Config.Bind("General", "NexusID",   1665, new ConfigDescription("Nexus mod ID for updates.", null, new ConfigurationManagerAttributes { IsAdminOnly = false, Browsable = false, ReadOnly = true }));
-#if DEBUG
-      EnableTrace = true;
-      Log.RegisterSource(Instance);
-#else
-      EnableTrace = false;
-#endif
-      Log.Trace(Instance, $"{Namespace}.{MethodBase.GetCurrentMethod().DeclaringType?.Name}.{MethodBase.GetCurrentMethod().Name}");
+      try
+      {
+        #if DEBUG
+        EnableTrace = true;
+        #else
+        EnableTrace = false;
+        #endif
+        Instance = this;
+        NexusId = Config.Bind("General", "NexusID", 1665, new ConfigDescription("Nexus mod ID for updates", null, new ConfigurationManagerAttributes { Browsable = false, ReadOnly = true }));
+        Log.RegisterSource(Instance);
+        Log.Trace(Instance, $"{GetType().Namespace}.{GetType().Name}.{MethodBase.GetCurrentMethod()?.Name}()");
+      }
+      catch (Exception e)
+      {
+        ZLog.LogError(e);
+      }
     }
 
     [UsedImplicitly]
@@ -43,7 +46,7 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
     {
       try
       {
-        Log.Trace(Instance, $"{Namespace}.{MethodBase.GetCurrentMethod().DeclaringType?.Name}.{MethodBase.GetCurrentMethod().Name}");
+        Log.Trace(Instance, $"{Namespace}.{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}.{MethodBase.GetCurrentMethod()?.Name}");
 
         Config.SaveOnConfigSet = true;
         
@@ -63,7 +66,7 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
     {
       try
       {
-        Log.Trace(Instance, $"{Namespace}.{MethodBase.GetCurrentMethod().DeclaringType?.Name}.{MethodBase.GetCurrentMethod().Name}");
+        Log.Trace(Instance, $"{Namespace}.{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}.{MethodBase.GetCurrentMethod()?.Name}");
         _harmony?.UnpatchSelf();
       }
       catch (Exception e)

@@ -20,12 +20,12 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
       {
         try
         {
-          Log.Trace(Main.Instance, $"{Main.Namespace}.{MethodBase.GetCurrentMethod().DeclaringType?.Name}.{MethodBase.GetCurrentMethod().Name}");
-          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod().DeclaringType?.Name}] {__instance.gameObject.name}");
+          Log.Trace(Main.Instance, $"{Main.Namespace}.{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}.{MethodBase.GetCurrentMethod()?.Name}");
+          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] {__instance.gameObject.name}");
           __instance.m_minRooms = Main.Instance.MinRooms.Value;
           __instance.m_maxRooms = Main.Instance.MaxRooms.Value;
 
-          for (int i = 0; i < __instance.m_maxRooms; i++)
+          for (var i = 0; i < __instance.m_maxRooms; i++)
           {
             // Log.Trace(Main.Instance, $"i : {i}, DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
             __instance.PlaceOneRoom(mode);
@@ -46,9 +46,9 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
               Log.Trace(Main.Instance, $"i+1 < __instance.m_maxRooms : {i+1 < __instance.m_maxRooms}");
             }
           }
-          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod().DeclaringType?.Name}] __instance.gameObject.name : {__instance.gameObject.name}");
-          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod().DeclaringType?.Name}] DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
-          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod().DeclaringType?.Name}] Loc: {__instance.gameObject.transform.position}");
+          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] __instance.gameObject.name : {__instance.gameObject.name}");
+          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
+          Log.Trace(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] Loc: {__instance.gameObject.transform.position}");
         }
         catch (Exception e)
         {

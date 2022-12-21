@@ -9,9 +9,9 @@ on:
     branches: [ main ] # Default release branch
     paths:
       - 'src/**'   
-      - '!src/**/.ts/*'   
-      - '!src/**/.nx/*'   
-      - '.github/workflows/**' 
+      - '.github/workflows/**'
+      - '!src/**/.ts/**'   
+      - '!src/**/.nx/**'   
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true

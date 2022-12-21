@@ -9,6 +9,7 @@ on:
     branches: [ main ] # Default release branch
     paths:
       - '!.github/**'
+      - '!docs/**'
       - '!**/.ts/**'   
       - '!**/.nx/**'   
 

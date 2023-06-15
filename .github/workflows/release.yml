@@ -26,9 +26,16 @@ jobs:
       nexus-api-key: ${{ secrets.NEXUS_API_KEY }}
       nexus-cookie-nxid-header: ${{ secrets.NEXUS_COOKIE_HEADER_NEXUSID }}
       nexus-cookie-sid-header: ${{ secrets.NEXUS_COOKIE_HEADER_SID_DEVELOP }}
+      ts-api-key: ${{ secrets.TS_SERVICEACCOUNT }}
     with:
       sln-file-name: Digitalroot.Valheim.MaxDungeonRooms
       proj-file-name: Digitalroot.Valheim.MaxDungeonRooms
       is-nuget-package: false
       nexus-enable-upload: true
       nexus-mod-id: 1665
+      ts-enable-upload: true
+      ts-name: Max_Dungeon_Rooms
+      ts-description: "Raises the chance to spawn larger dungeons."
+      ts-categories: "client-side server-side tweaks" #https://thunderstore.io/api/experimental/community/valheim/category/
+      ts-dependencies: denikson-BepInExPack_Valheim@5.4.2105 ValheimModding-Jotunn@2.12.1
+      

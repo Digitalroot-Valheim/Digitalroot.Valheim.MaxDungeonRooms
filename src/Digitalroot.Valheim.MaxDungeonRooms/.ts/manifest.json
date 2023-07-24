@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Interfaces/main/src/json/tsio-manifest.json",
   "name": "Max_Dungeon_Rooms",
   "author": "Digitalroot",
-  "description": "Raises the chance to spawn larger dungeons. ",
+  "description": "Raises the chance to spawn larger dungeons.",
   "version_number": "%VERSION_NUMBER%",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.1901",
-    "ValheimModding-Jotunn-2.10.1"
+    "denikson-BepInExPack_Valheim-5.4.2105",
+    "ValheimModding-Jotunn-2.12.4"
   ],
   "website_url": "https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.MaxDungeonRooms"
 }

@@ -63,27 +63,27 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
 
         Config.SaveOnConfigSet = true;
 
-        MinRooms = Config.Bind("1. General", "Min Rooms", 20, new ConfigDescription("Min number of rooms in a dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 1}));
+        MinRooms = Config.Bind("1. General", "Min Rooms", 20, new ConfigDescription("Min number of rooms in a dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 1}));
         MaxRooms = Config.Bind("1. General", "Max Rooms", 40, new ConfigDescription("Max number of rooms in a dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 0}));
         
         // Blackforest
         EnableForestCryptOverride = Config.Bind("2. Forest Crypt Overrides", "Enable Forest Crypt Override", false, new ConfigDescription("Min number of rooms in a Forest Crypt dungeon.", tags: new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true}));
-        ForestCryptOverrideMinRooms = Config.Bind("2. Forest Crypt Overrides", "Forest Crypt Min Rooms", 20, new ConfigDescription("Min number of rooms in a Forest Crypt dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true}));
+        ForestCryptOverrideMinRooms = Config.Bind("2. Forest Crypt Overrides", "Forest Crypt Min Rooms", 20, new ConfigDescription("Min number of rooms in a Forest Crypt dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true}));
         ForestCryptOverrideMaxRooms = Config.Bind("2. Forest Crypt Overrides", "Forest Crypt Max Rooms", 40, new ConfigDescription("Max number of rooms in a Forest Crypt dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true}));
         
         // Swamp
         EnableSunkenCryptOverride = Config.Bind("3. Sunken Crypt Overrides", "Enable Sunken Crypt Override", false, new ConfigDescription("Min number of rooms in a Sunken Crypt dungeon.", tags: new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true}));
-        SunkenCryptOverrideMinRooms = Config.Bind("3. Sunken Crypt Overrides", "Sunken Crypt Min Rooms", 20, new ConfigDescription("Min number of rooms in a Sunken Crypt dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true}));
+        SunkenCryptOverrideMinRooms = Config.Bind("3. Sunken Crypt Overrides", "Sunken Crypt Min Rooms", 20, new ConfigDescription("Min number of rooms in a Sunken Crypt dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true}));
         SunkenCryptOverrideMaxRooms = Config.Bind("3. Sunken Crypt Overrides", "Sunken Crypt Max Rooms", 30, new ConfigDescription("Max number of rooms in a Sunken Crypt dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes { IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true}));
 
         // Mount
         EnableCaveOverride = Config.Bind("4. Cave Overrides", "Enable Cave Override", false, new ConfigDescription("Min number of rooms in a Cave dungeon.", tags: new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true }));
-        CaveOverrideMinRooms = Config.Bind("4. Cave Overrides", "Cave Min Rooms", 20, new ConfigDescription("Min number of rooms in a Cave dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
+        CaveOverrideMinRooms = Config.Bind("4. Cave Overrides", "Cave Min Rooms", 20, new ConfigDescription("Min number of rooms in a Cave dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
         CaveOverrideMaxRooms = Config.Bind("4. Cave Overrides", "Cave Max Rooms", 40, new ConfigDescription("Max number of rooms in a Cave dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true }));
 
         // Mistlands
         EnableDvergrTownOverride = Config.Bind("5. Dvergr Town Overrides", "Enable Dvergr Town Override", false, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", tags: new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true }));
-        DvergrTownOverrideMinRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Min Rooms", 20, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
+        DvergrTownOverrideMinRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Min Rooms", 20, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
         DvergrTownOverrideMaxRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Max Rooms", 40, new ConfigDescription("Max number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true }));
 
         _harmony = Harmony.CreateAndPatchAll(typeof(Main).Assembly, Guid);

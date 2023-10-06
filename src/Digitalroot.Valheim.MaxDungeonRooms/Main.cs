@@ -33,7 +33,6 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
     public ConfigEntry<int> DvergrTownOverrideMinRooms;
     public ConfigEntry<int> DvergrTownOverrideMaxRooms;
 
-
     public Main()
     {
       try

@@ -25,6 +25,7 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
 
           var min = Main.Instance.MinRooms.Value;
           var max = Main.Instance.MaxRooms.Value;
+          var applyChanges = true;
 
           switch (__instance.gameObject.name)
           {
@@ -51,11 +52,18 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
               min = Main.Instance.DvergrTownOverrideMinRooms.Value;
               max = Main.Instance.DvergrTownOverrideMaxRooms.Value;
               break;
+
+            default: // Room is unknown. Skip making any changes.
+              applyChanges = false;
+              break;
           }
 
-          __instance.m_minRooms = min;
-          __instance.m_maxRooms = max;
-
+          if (applyChanges)
+          {
+            __instance.m_minRooms = min;
+            __instance.m_maxRooms = max;  
+          }
+          
           int i;
           for (i = 0; i < __instance.m_maxRooms; i++)
           {

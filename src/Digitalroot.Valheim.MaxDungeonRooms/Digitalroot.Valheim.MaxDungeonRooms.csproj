@@ -55,7 +55,7 @@
     </PackageReference>
     <PackageReference Include="Digitalroot.Valheim.Common.Log" Version="1.1.44" />
     <PackageReference Include="Digitalroot.Valheim.Common.ModReferences" Version="1.0.1" />
-    <PackageReference Include="Digitalroot.Valheim.Common.References" Version="0.217.4">
+    <PackageReference Include="Digitalroot.Valheim.Common.References" Version="0.217.24">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

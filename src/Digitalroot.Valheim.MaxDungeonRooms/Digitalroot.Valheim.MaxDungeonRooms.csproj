@@ -13,8 +13,8 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <Copyright>Copyright © Digitalroot Technologies 2021 - 2024</Copyright>
-    <PackageProjectUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.PluginTemplate</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.PluginTemplate</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.MaxDungeonRooms</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.MaxDungeonRooms</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Authors>Digitalroot</Authors>
     <Company>Digitalroot Technologies</Company>

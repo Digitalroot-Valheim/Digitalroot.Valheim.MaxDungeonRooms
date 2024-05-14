@@ -11,7 +11,8 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
 {
   [BepInPlugin(Guid, Name, Version)]
   [BepInDependency(Jotunn.Main.ModGuid)]
-  [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
+  [NetworkCompatibility(CompatibilityLevel.ServerMustHaveMod, VersionStrictness.Minor)]
+  
   public partial class Main : BaseUnityPlugin, ITraceableLogging
   {
     private Harmony _harmony;
@@ -37,6 +38,7 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
     {
       try
       {
+        // CompatibilityLevel.ServerMustHaveMod = 4
         #if DEBUG
         EnableTrace = true;
         #else

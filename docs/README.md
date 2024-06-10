@@ -52,6 +52,16 @@ for (int i = 0; i < maxRooms; i++)
 > Each dungeon type can have their own values. Enable the override for the dungeon and set it's values. 
 > If an override is not enable, then the values from the __General__ section are used.
 
+###### Add to server to enforce configs. 
+
+### Crossplay <span class="checked">✔</span>
+| Point of View               | Server w/ Mod                   | Server w/o Mod                  | Client (PC) w/ mod              | Client (PC/Console) w/o mod     |
+| ---                         | ---                             | ---                             | ---                             | ---                             |
+| Client (PC) w/ mod          | <span class="checked">✔</span> | <span class="checked">✔</span> | <span class="checked">✔</span> | <span class="checked">✔</span> |
+| Client (PC/Console) w/o mod | <span class="checked">✔</span> | <span class="checked">✔</span> | <span class="checked">✔</span> | <span class="checked">✔</span> |
+| Server w/ Mod               |                                 |                                 | <span class="checked">✔</span> | <span class="checked">✔</span> |
+| Server w/o Mod              |                                 |                                 | <span class="checked">✔</span> | <span class="checked">✔</span> |
+
 
 ### Issues/Questions/Bugs
 - Use the repo issues tab above.

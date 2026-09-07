@@ -47,11 +47,11 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
               max = Main.Instance.CaveOverrideMaxRooms.Value;
               break;
 
-            case "DG_DvergrTown(Clone)":
-              if (!Main.Instance.EnableDvergrTownOverride.Value) break;
-              min = Main.Instance.DvergrTownOverrideMinRooms.Value;
-              max = Main.Instance.DvergrTownOverrideMaxRooms.Value;
-              break;
+            // case "DG_DvergrTown(Clone)":
+            //   if (!Main.Instance.EnableDvergrTownOverride.Value) break;
+            //   min = Main.Instance.DvergrTownOverrideMinRooms.Value;
+            //   max = Main.Instance.DvergrTownOverrideMaxRooms.Value;
+            //   break;
 
             default: // Room is unknown. Skip making any changes.
               applyChanges = false;

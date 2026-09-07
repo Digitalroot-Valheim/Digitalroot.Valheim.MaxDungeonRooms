@@ -30,9 +30,9 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
     public ConfigEntry<bool> EnableCaveOverride;
     public ConfigEntry<int> CaveOverrideMinRooms;
     public ConfigEntry<int> CaveOverrideMaxRooms;
-    public ConfigEntry<bool> EnableDvergrTownOverride;
-    public ConfigEntry<int> DvergrTownOverrideMinRooms;
-    public ConfigEntry<int> DvergrTownOverrideMaxRooms;
+    // public ConfigEntry<bool> EnableDvergrTownOverride;
+    // public ConfigEntry<int> DvergrTownOverrideMinRooms;
+    // public ConfigEntry<int> DvergrTownOverrideMaxRooms;
 
     public Main()
     {
@@ -83,9 +83,9 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
         CaveOverrideMaxRooms = Config.Bind("4. Cave Overrides", "Cave Max Rooms", 40, new ConfigDescription("Max number of rooms in a Cave dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true }));
 
         // Mistlands
-        EnableDvergrTownOverride = Config.Bind("5. Dvergr Town Overrides", "Enable Dvergr Town Override", false, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", tags: new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true }));
-        DvergrTownOverrideMinRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Min Rooms", 20, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
-        DvergrTownOverrideMaxRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Max Rooms", 40, new ConfigDescription("Max number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true }));
+        // EnableDvergrTownOverride = Config.Bind("5. Dvergr Town Overrides", "Enable Dvergr Town Override", false, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", tags: new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true }));
+        // DvergrTownOverrideMinRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Min Rooms", 20, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
+        // DvergrTownOverrideMaxRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Max Rooms", 40, new ConfigDescription("Max number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true }));
 
         _harmony = Harmony.CreateAndPatchAll(typeof(Main).Assembly, Guid);
       }

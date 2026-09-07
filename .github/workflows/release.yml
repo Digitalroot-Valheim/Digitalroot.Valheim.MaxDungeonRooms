@@ -33,11 +33,13 @@ jobs:
       sln-file-name: Digitalroot.Valheim.MaxDungeonRooms
       proj-file-name: Digitalroot.Valheim.MaxDungeonRooms
       is-nuget-package: false
+      skip-unit-tests: true
       nexus-enable-upload: true
       nexus-mod-id: 1665
+      nexus-mod-file-id: 2360164
       ts-enable-upload: true
       ts-name: Max_Dungeon_Rooms
       ts-description: "Raises the chance to spawn larger dungeons."
       ts-categories: "server-side tweaks" #https://thunderstore.io/api/experimental/community/valheim/category/
-      ts-dependencies: ValheimModding-Jotunn@2.19.4
+      ts-dependencies: ValheimModding-Jotunn@2.29.2
 

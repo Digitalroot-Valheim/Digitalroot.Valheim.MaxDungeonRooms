@@ -41,5 +41,5 @@ jobs:
       ts-name: Max_Dungeon_Rooms
       ts-description: "Raises the chance to spawn larger dungeons."
       ts-categories: "server-side tweaks" #https://thunderstore.io/api/experimental/community/valheim/category/
-      ts-dependencies: ValheimModding-Jotunn@2.29.2
+      ts-dependencies: ValheimModding-Jotunn@2.30.0
 

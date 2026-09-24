@@ -1,4 +1,4 @@
-﻿using Digitalroot.Valheim.Common;
+﻿using Digitalroot.Modding.Framework.Common;
 using Digitalroot.Valheim.MaxDungeonRooms;
 using System.Reflection;
 using System.Runtime.InteropServices;

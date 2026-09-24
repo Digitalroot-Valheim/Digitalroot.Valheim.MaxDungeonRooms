@@ -1,6 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
-using Digitalroot.Valheim.Common;
+using Digitalroot.Modding.Framework.Logging;
 using HarmonyLib;
 using JetBrains.Annotations;
 using Jotunn.Utils;
@@ -10,7 +10,7 @@ using System.Reflection;
 namespace Digitalroot.Valheim.MaxDungeonRooms
 {
   [BepInPlugin(Guid, Name, Version)]
-  [BepInDependency(Jotunn.Main.ModGuid)]
+  [BepInDependency(Jotunn.Main.ModGuid, "2.30.2")]
   [NetworkCompatibility(CompatibilityLevel.ServerMustHaveMod, VersionStrictness.Minor)]
   
   public partial class Main : BaseUnityPlugin, ITraceableLogging
@@ -30,15 +30,11 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
     public ConfigEntry<bool> EnableCaveOverride;
     public ConfigEntry<int> CaveOverrideMinRooms;
     public ConfigEntry<int> CaveOverrideMaxRooms;
-    // public ConfigEntry<bool> EnableDvergrTownOverride;
-    // public ConfigEntry<int> DvergrTownOverrideMinRooms;
-    // public ConfigEntry<int> DvergrTownOverrideMaxRooms;
 
     public Main()
     {
       try
       {
-        // CompatibilityLevel.ServerMustHaveMod = 4
         #if DEBUG
         EnableTrace = true;
         #else
@@ -81,11 +77,6 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
         EnableCaveOverride = Config.Bind("4. Cave Overrides", "Enable Cave Override", false, new ConfigDescription("Min number of rooms in a Cave dungeon.", tags: new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true }));
         CaveOverrideMinRooms = Config.Bind("4. Cave Overrides", "Cave Min Rooms", 20, new ConfigDescription("Min number of rooms in a Cave dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
         CaveOverrideMaxRooms = Config.Bind("4. Cave Overrides", "Cave Max Rooms", 40, new ConfigDescription("Max number of rooms in a Cave dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true }));
-
-        // Mistlands
-        // EnableDvergrTownOverride = Config.Bind("5. Dvergr Town Overrides", "Enable Dvergr Town Override", false, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", tags: new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 100, IsAdvanced = true }));
-        // DvergrTownOverrideMinRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Min Rooms", 20, new ConfigDescription("Min number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 120), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 1, IsAdvanced = true }));
-        // DvergrTownOverrideMaxRooms = Config.Bind("5. Dvergr Town Overrides", "Dvergr Town Max Rooms", 40, new ConfigDescription("Max number of rooms in a Dvergr Town dungeon.", new AcceptableValueRange<int>(10, 1000), new ConfigurationManagerAttributes {IsAdminOnly = true, Browsable = true, Order = 0, IsAdvanced = true }));
 
         _harmony = Harmony.CreateAndPatchAll(typeof(Main).Assembly, Guid);
       }

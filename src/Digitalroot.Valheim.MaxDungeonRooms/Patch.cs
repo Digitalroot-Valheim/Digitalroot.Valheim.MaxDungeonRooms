@@ -1,4 +1,4 @@
-﻿using Digitalroot.Valheim.Common;
+﻿using Digitalroot.Modding.Framework.Logging;
 using HarmonyLib;
 using JetBrains.Annotations;
 using System;

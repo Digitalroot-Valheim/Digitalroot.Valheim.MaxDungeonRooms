@@ -13,10 +13,18 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
     [HarmonyPatch(typeof(DungeonGenerator))]
     public class PatchDungeonGeneratorPlaceRooms
     {
+      [HarmonyReversePatch]
+      [HarmonyPatch(typeof(DungeonGenerator), nameof(DungeonGenerator.PlaceRooms))]
+      public static void CallOriginal([NotNull] DungeonGenerator __instance, ZoneSystem.SpawnMode mode)
+      {
+        // Harmony replaces this body with the original method's IL at patch time.
+        throw new NotImplementedException("HarmonyReversePatch");
+      }
+
       [HarmonyPrefix, HarmonyPriority(Priority.Normal)]
       [HarmonyPatch(typeof(DungeonGenerator), nameof(DungeonGenerator.PlaceRooms))]
       // ReSharper disable once InconsistentNaming
-      public static bool Prefix([NotNull] ref DungeonGenerator __instance, ZoneSystem.SpawnMode mode)
+      public static bool Prefix([NotNull] DungeonGenerator __instance, ZoneSystem.SpawnMode mode)
       {
         try
         {
@@ -47,12 +55,6 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
               max = Main.Instance.CaveOverrideMaxRooms.Value;
               break;
 
-            // case "DG_DvergrTown(Clone)":
-            //   if (!Main.Instance.EnableDvergrTownOverride.Value) break;
-            //   min = Main.Instance.DvergrTownOverrideMinRooms.Value;
-            //   max = Main.Instance.DvergrTownOverrideMaxRooms.Value;
-            //   break;
-
             default: // Room is unknown. Skip making any changes.
               applyChanges = false;
               break;
@@ -64,33 +66,34 @@ namespace Digitalroot.Valheim.MaxDungeonRooms
             __instance.m_maxRooms = max;  
           }
           
-          int i;
-          for (i = 0; i < __instance.m_maxRooms; i++)
-          {
-            // Log.Trace(Main.Instance, $"i : {i}, DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
-            __instance.PlaceOneRoom(mode);
-            // Log.Trace(Main.Instance, $"__instance.CheckRequiredRooms() : {__instance.CheckRequiredRooms()}");
-            // Log.Trace(Main.Instance, $"DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms : {DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms}");
-            // Log.Trace(Main.Instance, $"i+1 < __instance.m_maxRooms : {i+1 < __instance.m_maxRooms}");
-            if (__instance.CheckRequiredRooms() && DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms)
-            {
-              ZLog.Log("All required rooms have been placed, stopping generation");
-              break;
-            }
-
-            if (i + 1 > __instance.m_maxRooms)
-            {
-              Log.Trace(Main.Instance, $"i : {i}, DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
-              Log.Trace(Main.Instance, $"__instance.CheckRequiredRooms() : {__instance.CheckRequiredRooms()}");
-              Log.Trace(Main.Instance, $"DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms : {DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms}");
-              Log.Trace(Main.Instance, $"i+1 < __instance.m_maxRooms : {i+1 < __instance.m_maxRooms}");
-            }
-          }
+          CallOriginal(__instance, mode);
+          // int i;
+          // for (i = 0; i < __instance.m_maxRooms; i++)
+          // {
+          //   // Log.Trace(Main.Instance, $"i : {i}, DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
+          //   __instance.PlaceOneRoom(mode);
+          //   // Log.Trace(Main.Instance, $"__instance.CheckRequiredRooms() : {__instance.CheckRequiredRooms()}");
+          //   // Log.Trace(Main.Instance, $"DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms : {DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms}");
+          //   // Log.Trace(Main.Instance, $"i+1 < __instance.m_maxRooms : {i+1 < __instance.m_maxRooms}");
+          //   if (__instance.CheckRequiredRooms() && DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms)
+          //   {
+          //     ZLog.Log("All required rooms have been placed, stopping generation");
+          //     break;
+          //   }
+          //
+          //   if (i + 1 > __instance.m_maxRooms)
+          //   {
+          //     Log.Trace(Main.Instance, $"i : {i}, DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
+          //     Log.Trace(Main.Instance, $"__instance.CheckRequiredRooms() : {__instance.CheckRequiredRooms()}");
+          //     Log.Trace(Main.Instance, $"DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms : {DungeonGenerator.m_placedRooms.Count > __instance.m_minRooms}");
+          //     Log.Trace(Main.Instance, $"i+1 < __instance.m_maxRooms : {i+1 < __instance.m_maxRooms}");
+          //   }
+          // }
           Log.Debug(Main.Instance, "All required rooms have been placed, stopping generation");
           Log.Debug(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] __instance.gameObject.name : {__instance.gameObject.name}");
           Log.Debug(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] DungeonGenerator.m_placedRooms.Count : {DungeonGenerator.m_placedRooms.Count}");
           Log.Debug(Main.Instance, $"[{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}] Loc: {__instance.gameObject.transform.position}");
-          Log.Debug(Main.Instance, $"Total attempts {i} of {__instance.m_minRooms}/{__instance.m_maxRooms}");
+          Log.Debug(Main.Instance, $"Dungeon room settings: (min/max) {__instance.m_minRooms}/{__instance.m_maxRooms}");
         }
         catch (Exception e)
         {

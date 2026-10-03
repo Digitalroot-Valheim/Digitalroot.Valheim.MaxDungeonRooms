@@ -1,3 +1,8 @@
+## v12.0.41
+- Update to Valheim 1.0.16
+- Refactored to call DungeonGenerator.PlaceRooms as a ReversePatch. 
+
+
 ## v12.0.40
 - Updated to require JvL 2.30.2
 - Update to DMF

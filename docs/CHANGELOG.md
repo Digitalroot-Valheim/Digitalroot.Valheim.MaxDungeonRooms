@@ -1,3 +1,6 @@
+## v2.0.42
+- Fix typo in CHANGELOG.md
+
 ## v2.0.41
 - Update to Valheim 1.0.16
 - Refactored to call DungeonGenerator.PlaceRooms as a ReversePatch. 
